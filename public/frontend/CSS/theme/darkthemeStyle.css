@@ -1,0 +1,129 @@
+/* Customize header */
+.Gradiance {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #FF00FF, #E25822, #7FFF00);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 4s ease infinite;
+    padding: 1rem;
+}
+
+/* Animation keyframes */
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/*/////////////   BOOTSTAP THEME CHANGE /////////////// */
+
+/* Override Bootstrap Primary Button */
+.btn-primary {
+    background-color: #222; /* Dark grey */
+    border: 2px solid #FF00FF; /* Fuchsia */
+    color: chartreuse;
+}
+
+.btn-primary:hover {
+    background-color: #333; /* Slightly lighter grey */
+    border-color: chartreuse;
+    color: #FF00FF; /* Fuchsia on hover */
+}
+
+/* Info button override */
+.btn-info {
+    background-color: #222; /* Dark grey */
+    border: 2px solid chartreuse;
+    color: #FF00FF; /* Fuchsia */
+}
+
+.btn-info:hover {
+    background-color: #333;
+    border-color: #FF00FF;
+    color: chartreuse;
+}
+
+/* Form elements dark theme */
+.form-control {
+    background-color: #333;
+    color: #FF00FF;
+    border: 1px solid #555;
+}
+
+.form-control::placeholder {
+    color: #bbb;
+}
+
+.form-check-input {
+    background-color: #444;
+    border-color: #777;
+}
+
+label,
+.form-text {
+    color: #ddd;
+}
+
+
+/* Optional: Background gradient or solid */
+body {
+    background-color: #121212;
+}
+
+/* form1 customization */
+.form1-label {
+    color: chartreuse;
+}
+
+.form1-input::placeholder {
+    color: #444; /* dark placeholder text for contrast */
+}
+
+
+.form1-input {
+    background-color: form1;
+    color: #000;
+    border: 2px solid #FF00FF; /* Fuchsia border */
+    box-shadow: none; /* Optional: remove Bootstrap's shadow */
+}
+
+.form1-input:focus {
+    border-color: #FF00FF;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 255, 0.25); /* Fuchsia glow on focus */
+}
+
+/* Submit Button: Dark grey with Fuchsia border and Chartreuse text */
+.btn.btn-primary {
+    background-color: #222 !important; /* Dark grey */
+    border: 2px solid #FF00FF !important; /* Fuchsia */
+    color: chartreuse !important;
+}
+
+.btn.btn-primary:hover {
+    background-color: #333 !important; /* Slightly lighter grey */
+    border-color: chartreuse !important;
+    color: #FF00FF !important; /* Fuchsia */
+}
+
+/* New User Button: Dark grey with Chartreuse border and Fuchsia text */
+.btn.btn-info {
+    background-color: #444 !important; /* grey */
+    border: 2px solid chartreuse !important;
+    color: #FF00FF !important;
+}
+
+.btn.btn-info:hover {
+    background-color: #333 !important;
+    border-color: #FF00FF !important;
+    color: chartreuse !important;
+}

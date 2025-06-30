@@ -1,0 +1,111 @@
+/*Gradiznce Theme colors utilize 
+background color of off white (#F6F4F0)
+darkblue (#0E6289)
+turquoise (#4B9D93)
+dark teal (#096789)
+teal (##449990)
+gold (#EAB344)
+*/
+
+
+/*///////////////////////// GLOBAL ////////////////////////*/
+
+body {
+    background-color: #F6F4F0; /* off-white */
+    color: #0E6289; /* dark blue text */
+}
+
+a, label, .form-text {
+    color: #0E6289;
+}
+
+/*///////////////// HEADER STYLING //////////////////*/
+
+.Gradiance {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #096789, #4B9D93, #EAB344);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 4s ease infinite;
+    padding: 1rem;
+}
+
+@keyframes gradientText {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+/*///////////////// BUTTON STYLES //////////////////*/
+
+/* Primary Button: Dark Blue with Gold border */
+.btn-primary {
+    background-color: #0E6289;
+    border: 2px solid #EAB344;
+    color: #F6F4F0;
+}
+
+.btn-primary:hover {
+    background-color: #096789;
+    border-color: #4B9D93;
+    color: #EAB344;
+}
+
+/* Info Button: Teal with Gold text */
+.btn-info {
+    background-color: #449990;
+    border: 2px solid #EAB344;
+    color: #F6F4F0;
+}
+
+.btn-info:hover {
+    background-color: #4B9D93;
+    border-color: #096789;
+    color: #EAB344;
+}
+
+/*////////////// FORM ELEMENTS //////////////////*/
+
+.form-control {
+    background-color: #ffffff;
+    color: #0E6289;
+    border: 1px solid #4B9D93;
+}
+
+.form-control::placeholder {
+    color: #9dbdc0; /* lighter turquoise */
+}
+
+.form-control:focus {
+    border-color: #EAB344;
+    box-shadow: 0 0 0 0.2rem rgba(234, 179, 68, 0.25); /* gold glow */
+}
+
+.form-check-input {
+    background-color: #ffffff;
+    border-color: #4B9D93;
+}
+
+.form1-label {
+    color: #096789;
+}
+
+.form1-input {
+    background-color: #ffffff;
+    color: #0E6289;
+    border: 2px solid #096789;
+    box-shadow: none;
+}
+
+.form1-input::placeholder {
+    color: #9dbdc0;
+}
+
+.form1-input:focus {
+    border-color: #EAB344;
+    box-shadow: 0 0 0 0.2rem rgba(234, 179, 68, 0.25);
+}

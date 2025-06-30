@@ -1,0 +1,227 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Layout Containers */
+.container-fluid {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    background-color: rgb(247, 247, 247);
+}
+
+.background-area {
+    max-height: 75vh;
+    background-color: rgb(247, 247, 247);
+}
+
+.navbar {
+    flex: 0 0 auto;
+}
+
+/* Collapse Transitions */
+.collapse.width {
+    width: 0;
+    height: auto;
+    overflow: hidden;
+    transition: width 0.35s ease;
+}
+
+.collapse.width.show {
+    width: 25%;
+}
+
+/* Sections */
+.queue-col {
+    background-color: rgb(63, 63, 63);
+}
+
+.info-row,
+.question-row {
+    background-color: rgb(255, 255, 255);
+}
+
+.question-row {
+    min-height: 0;
+}
+
+/* Rounded Corners */
+.rounded-top-left {
+    border-top-left-radius: 0.25rem;
+}
+
+.rounded-top-right {
+    border-top-right-radius: 0.25rem;
+}
+
+.rounded-left {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Heights */
+.h-10 {
+    height: 10%;
+}
+
+.h-20 {
+    height: 20%;
+}
+
+.h-30 {
+    height: 30%;
+}
+
+.h-70 {
+    height: 70%;
+}
+
+.h-80 {
+    height: 80%;
+}
+
+.h-90 {
+    height: 90%;
+}
+
+/* Tabs */
+.nav-tabs .nav-link.active {
+    background-color: inherit;
+    color: inherit;
+    border-color: transparent;
+}
+
+/* Lists */
+.list-group,
+.list-group-item {
+    width: 100%;
+}
+
+.scrollable-list {
+    height: 100%;
+    overflow-y: auto;
+}
+
+/* Student Queue */
+#studentQueue {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#studentQueue .card {
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    overflow-wrap: break-word;
+}
+
+.student-card {
+    cursor: pointer;
+}
+
+/* Question Info */
+.question-info {
+    max-height: 100px;
+}
+
+
+/* //////////// STUDENT VIEW ///////////////  */
+
+
+  .queue-option-btn {
+    min-width: 120px;
+  }
+
+
+
+/*/////////////   BOOTSTAP THEME CHANGE /////////////// */
+
+/* Override Bootstrap Primary Button */
+.btn-primary {
+    background-color: #FF00FF; /* Fuchsia */
+    border-color: #E25822;     /* Flame */
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #E25822; /* Flame */
+    border-color: #FF00FF;     /* Fuchsia */
+    color: #fff;
+}
+
+/* Info button override */
+.btn-info {
+    background-color: #E25822;
+    border-color: #FF00FF;
+    color: #fff;
+}
+
+.btn-info:hover {
+    background-color: #FF00FF;
+    border-color: #E25822;
+    color: #fff;
+}
+
+/* Form elements dark theme */
+.form-control {
+    background-color: #333;
+    color: #FF00FF;
+    border: 1px solid #555;
+}
+
+.form-control::placeholder {
+    color: #bbb;
+}
+
+.form-check-input {
+    background-color: #444;
+    border-color: #777;
+}
+
+label,
+.form-text {
+    color: #ddd;
+}
+
+/* Customize header */
+.Gradiance {
+    color: #E25822;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 1rem;
+    text-align: center;
+}
+
+/* Optional: Background gradient or solid */
+body {
+    background-color: #121212;
+}
+
+/* form1 customization */
+.form1-label {
+    color: form1;
+}
+
+.form1-input::placeholder {
+    color: #444; /* dark placeholder text for contrast */
+}
+
+
+.form1-input {
+    background-color: form1;
+    color: #000;
+    border: 2px solid #FF00FF; /* Fuchsia border */
+    box-shadow: none; /* Optional: remove Bootstrap's shadow */
+}
+
+.form1-input:focus {
+    border-color: #FF00FF;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 255, 0.25); /* Fuchsia glow on focus */
+}
+

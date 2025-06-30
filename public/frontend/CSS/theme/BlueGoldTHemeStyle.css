@@ -1,0 +1,120 @@
+
+/* Customize header */
+.Gradiance {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(90deg, #003DA5, #FFCC00, #003DA5); /* Blue → Gold → Blue */
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientText 5s ease infinite;
+    padding: 1rem;
+}
+
+
+
+/* Animation keyframes */
+@keyframes gradientText {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/*/////////////   BOOTSTAP THEME CHANGE /////////////// */
+
+/* Override Bootstrap Primary Button */
+.btn-primary {
+    background-color: #003DA5;
+    border-color: #003DA5;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #002f7a;
+    border-color: #FFCC00;
+    color: #FFCC00;
+}
+
+
+.btn-info {
+    background-color: #FFCC00;
+    border-color: #003DA5;
+    color: #003DA5;
+}
+
+.btn-info:hover {
+    background-color: #e6b800;
+    border-color: #002f7a;
+    color: #fff;
+}
+
+
+
+/* Form elements theme */
+.form-control {
+    background-color: #f5f5f5;
+    color: #003DA5;
+    border: 1px solid #003DA5;
+}
+
+.form-control:focus {
+    border-color: #FFCC00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 204, 0, 0.4);
+}
+
+.form-check-input {
+    background-color: #fff;
+    border-color: #003DA5;
+}
+
+.form1-label {
+    color: #003DA5;
+}
+
+.form-text {
+    color: #003DA5;
+}
+/* form1 customization */
+.form1-label {
+    color: gold;
+}
+
+.form1-input::placeholder {
+    color: #444; /* placeholder text for contrast */
+}
+
+
+.form1-input {
+    background-color: form1;
+    color: #000;
+    border: 2px solid #FF00FF; /* Fuchsia border */
+    box-shadow: none; /* Optional: remove Bootstrap's shadow */
+}
+
+.form1-input:focus {
+    border-color: #FF00FF;
+    box-shadow: 0 0 0 0.2rem rgba(255, 0, 255, 0.25); /* Fuchsia glow on focus */
+}
+
+
+
+/* Optional: Background gradient or solid */
+body {
+    /*background: #fefefe;
+    color: #003DA5;
+    */
+    background: linear-gradient(to bottom right, #003DA5, #001f4d);
+    color: #fff;
+    
+}
+
+
+
