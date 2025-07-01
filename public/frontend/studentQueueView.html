@@ -12,7 +12,7 @@
   <!-- link css -->
   <link rel="stylesheet" href="css/updated-style.css">
   <!-- link theme -->
-  <link rel="stylesheet" href="css/theme/darkthemeStyle.css">
+  <link rel="stylesheet" href="css/theme/GradianceThemeStyle.css">
 
 
 </head>
@@ -33,9 +33,7 @@
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item"><a class="nav-link" data-bs-toggle="collapse" href="#collapseWidthExample">Toggle Queue</a></li>
           
-          <!-- SOULD NOT NEED
-          <li class="nav-item"><a class="nav-link" data-bs-toggle="collapse" href="#collapseHeightExample">Toggle Student Info</a></li>
-          -->
+        
 
           <li class="nav-item"><a class="nav-link" href="#">Database</a></li>
           <li class="nav-item"><a class="nav-link" href="#">About</a></li>
@@ -67,20 +65,20 @@
     <div class="row h-100">
         
       <!-- Sidebar Queue -->
-      <div id="collapseWidthExample" class="col-3 queue-col h-100 collapse width show">
+      <div id="collapseWidthExample" class="col-4 queue-col h-100 collapse width show">
         <div class="card card-body mt-3" style="text-align: center;">
 
           <!-- Place and Time in Queue Box -->
-          <div class="card border-primary mb-2 mx-auto text-center" style="max-width: 18rem;">
+          <div class="card border-primary mb-1 mx-auto text-center" style="max-width: 18rem;">
             <div class="card-header bg-primary text-white">Place in Queue</div>
             <div class="card-body">
-              <h5 class="card-title display-6 card boarder-primary mb-2">5</h5>
+              <h5 class="card-title fs-4 card boarder-primary mb-1">5</h5>
               <p class="card-text mt-3"><strong>Estimated Time:</strong> 60 min</p>
             </div>
           </div>
 
           <!-- Instructor Availability Section -->
-          <div class="row justify-content-center mb-3">
+          <div class="row justify-content-center mb-1">
             <div class="col-8">
               <div class="card text-center shadow">
                 <div class="card-body">
@@ -97,7 +95,7 @@
           </div>
 
           <!-- TA Availability Section -->
-          <div class="row justify-content-center mb-3">
+          <div class="row justify-content-center mb-1">
             <div class="col-8">
               <div class="card text-center shadow">
                 <div class="card-body">
@@ -114,25 +112,23 @@
           </div>
 
           <!-- QUEUE OPTIONS -->
-            <div class="row justify-content-center mb-3">
+            <div class="row justify-content-center mb-1">
               <div class="col-12">
                 <div class="card shadow text-center">
                   <div class="card-body">
 
                     <!-- Individual Options as Buttons -->
                     <div class="d-flex flex-wrap justify-content-center gap-2 mt-2">
-                      <div class="row">
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 1</button></div>
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 2</button></div>
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 3</button></div>
-                      </div>
-                      <div class="row">
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 4</button></div>
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 5</button></div>
-                        <div class="col-sm-4"><button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 6</button></div>
-                      </div>
+                      
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 1</button>
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 2</button>
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 3</button>
+                    
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 4</button>
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 5</button>
+                      <button class="btn btn-outline-primary queue-option-btn">QUEUE OPTION 6</button>
+                      
                     </div>
-
 
                   </div>
                 </div>
@@ -148,7 +144,7 @@
         <!-- Student Info Tabs -->
 
         
-        <div id="collapseHeightExample" class="row flex-column collapse show rounded mb-3 shadow-sm flex-shrink-0">
+        <div id="collapseHeightExample" class="row flex-column collapse show rounded mb-1 shadow-sm flex-shrink-0">
           <ul class="nav nav-tabs" id="myTab" role="tablist">
 
             
@@ -174,109 +170,7 @@
         </div>
         
 
-        <!-- Question Area -->
-        <div class="row question-row bg-danger rounded shadow-sm flex-grow-1 overflow-auto">
-          <!-- Question Select -->
-          <div class="col-4 question-select rounded-start bg-success h-100">
-            <div class="row filter bg-white rounded-top-left h-20">
-              <p>Search or filter questions here.</p>
-            </div>
-            <div class="row rounded-start bg-dark h-80">
-              <div class="col-12 scrollable-list h-100 px-0">
-                <div class="list-group list-group-flush">
-                  <a href="#" class="list-group-item list-group-item-action active">Sample question 1</a>
-                  <a href="#" class="list-group-item list-group-item-action">Sample question 2</a>
-                  <a href="#" class="list-group-item list-group-item-action">Sample question 3</a>
-                  <!-- Add more questions as needed -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question Detail -->
-          <div class="col-8 bg-dark h-100">
-            <div class="row rounded-top-right h-70">
-              <div class="col-12 bg-white h-100">
-                <div class="row h-10">
-                  <div class="question-info d-flex justify-content-between">
-                    <h6>Question ID: #123</h6>
-                    <h6>Category: Logic</h6>
-                    <h6>Difficulty: Medium</h6>
-                    <h6>Avg Time: 12 mins</h6>
-                  </div>
-                </div>
-                <div class="row h-90">
-                  <div class="col-6">
-                    <div class="row h-80">
-                      <p>This is an example question text that could be shown here. 
-                        But i'm putting more text to see how it adjust. now just a bunch of stuff.  kafdj akdf jklasdjfkl jadkljklfd jklajdf klj 
-                        ioarjeofikjda jsfdokjfdiokjkj ja kjkladj kj kljadsfkljfdk aaldfkj a dklajd sklf jakdlfjakfsdjldfk</p>
-                    </div>
-
-                    <!-- SHOULD NOT NEED
-                    <div class="row bg-white h-20">
-                      <button class="btn btn-primary">Start</button>
-                      <button class="btn btn-danger">End</button>
-                    </div>
-                    -->
-
-                  </div>
-                  <div class="col-6">
-                    <p>Image preview here (if applicable)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Follow-up Section & comments -->
-            <div class="row bg-secondary p-3 h-30">
-              <div class="col-12 d-flex flex-column h-100">
-
-                <!-- Top 80%: Two-column layout -->
-                <div class="d-flex flex-grow-1 mb-3 gap-3">
-                  <!-- Follow-up Questions List (left side) -->
-                  <div class="bg-dark rounded-start p-2 w-40 overflow-auto">
-                    <h6 class="text-white">Follow-up Questions</h6>
-                    <div class="scrollable-list">
-                      <div class="list-group list-group-flush">
-                        <a href="#" class="list-group-item list-group-item-action active">Follow-up question 1</a>
-                        <a href="#" class="list-group-item list-group-item-action">Follow-up question 2</a>
-                        <a href="#" class="list-group-item list-group-item-action">Follow-up question 3</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Follow-up Info Panel (right side) -->
-                  <div class="bg-light border rounded-end p-2 w-60 overflow-auto">
-                    <h6>Follow-up Info</h6>
-                    <p>This panel will display details about the selected follow-up question.</p>
-                  </div>
-                </div>
-
-                <!-- Bottom 20%: Comments form -->
-                <!--SHOULD NOT NEED
-                <div class="flex-shrink-0">
-                  <form class="h-100 d-flex flex-column">
-                    <div class="mb-2 flex-grow-1">
-                      <label for="followUpText" class="form-label text-white">Additional Comments</label>
-                      <textarea class="form-control h-100" id="followUpText" placeholder="Enter additional notes or comments..."></textarea>
-                    </div>
-                    
-                    <div>
-                      <button type="submit" class="btn btn-light">Submit</button>
-                    </div>
-                  </form>
-                </div>
-                -->
-
-              </div>
-            </div>
-            <!-- END Follow-up Section & comments-->
-
-
-
-          </div> <!--END Question Details-->
-        </div>  <!--END Question area-->
+        
       </div>  <!--END Main Area--> 
     </div> <!--END row size 100-->
   </div> <!--END Main Content-->
