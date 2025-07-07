@@ -1,7 +1,9 @@
 package com.Demo.webAppDemo2.demo.controller;
 
+import com.Demo.webAppDemo2.demo.dao.gradienceDao;
 import com.Demo.webAppDemo2.demo.model.Question;
 import com.Demo.webAppDemo2.demo.model.Student;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -12,10 +14,21 @@ import java.util.Map;
 @Controller
 public class InstructorController {
 
+    private final gradienceDao gradDao;
+
+    @Autowired
+    public InstructorController(gradienceDao gradDao) {
+        this.gradDao = gradDao;
+    }
+
+
+
+
     @GetMapping("instructor")
     public String getInstructor(Map<String, Object> model) {
         List<Student> students = new ArrayList<>();
         List<Question> questions = new ArrayList<>();
+        List<Student> databaseStudents = new ArrayList<>();
         //This will be replaced with database calls
         for (int i = 0; i < 10; i++) {
             students.add(new Student("John Doe", "CS 252", "Knowledge Review"));
