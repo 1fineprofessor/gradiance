@@ -2,18 +2,11 @@ package com.uwec.gradiance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
-@RestController
 public class GradianceApplication {
-	@GetMapping("/")
-		String home(){
-			return "Hello world!";
-		}
-
+	// http://localhost:8085 will let you test when run locally.
+	// when run on the server it is just https://gradiance.org
 	public static void main(String[] args) {
 		SpringApplication.run(GradianceApplication.class, args);
 	}
