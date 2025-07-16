@@ -12,7 +12,6 @@ public class QueueNode {
         private long joinTime;
         @Getter
         private int priority;
-        private
     //constructor
     QueueNode(String email, String course, String evaluation){
         this.email = email;

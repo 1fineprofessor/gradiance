@@ -29,6 +29,7 @@ public class Queue {
         QueueNode currentOutput;
         QueueNode nextOutput;
         if((currentOutput = queueSelf.getFirst()) == null) return null;
+        currentOutput = queueSelf.getFirst();
         while(queueSelf.iterator().hasNext()){
             nextOutput = queueSelf.iterator().next();
             int nextCheckPriority = nextOutput.getPriority();
