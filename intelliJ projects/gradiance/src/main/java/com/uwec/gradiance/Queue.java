@@ -1,25 +1,45 @@
 package com.uwec.gradiance;
 
+import lombok.Getter;
+
 import java.util.LinkedList;
 
 public class Queue {
     //members
-    private LinkedList queueSelf;
+    private LinkedList<QueueNode> queueSelf;
+    @Getter
     private String ID;
     //constructor
     Queue(){
-        this.queueSelf = new LinkedList();
+        this.queueSelf = new LinkedList<QueueNode>();
         this.ID = null; //where are we deriving a queue's ID from?
     }
 
     //methods
+
+    //iterate through list
+    //update each student's priority based on a passed in target(course or evaluation)
     public void updatePriority(String priorityTarget){ //accepts a value corresponding to either a course or evaluation
 
     }
-    public QueueNode findNext(String email){
-        QueueNode nextStudent = null;
-        return nextStudent;
+    //find the next student who should be called in by default
+    //then return the node
+    //does not yet factor in joinTime
+    public QueueNode findNext(){
+        QueueNode currentOutput;
+        QueueNode nextOutput;
+        if((currentOutput = queueSelf.getFirst()) == null) return null;
+        while(queueSelf.iterator().hasNext()){
+            nextOutput = queueSelf.iterator().next();
+            int nextCheckPriority = nextOutput.getPriority();
+            if (currentOutput.getPriority() < nextCheckPriority) {
+                currentOutput = nextOutput;
+            }
+        }
+        return currentOutput;
     }
+    //find a student by some form of primary key(currently set to email preemptively)
+    //then return the node
     public QueueNode findStudent(String email){
         QueueNode targetStudent = null;
         return targetStudent;
@@ -27,7 +47,8 @@ public class Queue {
     public void callStudent(){
 
     }
-    public String getID(){
-        return this.ID;
+    //append a student. currently returns nothing
+    public void appendStudent(QueueNode newStudent){
+        queueSelf.add(newStudent);
     }
 }
