@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 public class StudentQueueController {
     //mappings return files according to thymeleaf template name syntax.
     // will be tested more in depth when thymeleaf files are available
-    @GetMapping("/studentqueue")
+    @GetMapping("/studentQueue")
     public String home(Model model){
-        return "studentqueue";
+        return "studentQueue";
     }
 }
