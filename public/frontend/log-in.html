@@ -14,7 +14,7 @@
     
     <title>Document</title>
 </head>
-<body >
+<body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
     
     <div class="row">
@@ -25,7 +25,7 @@
       </div>
       
       <div class="col-5 Gradiance" style="text-align: left;"> 
-        <div style="font-size: 50;">Gradiance</div>
+        <div style="font-size: 50px;">Gradiance</div>
         <div style="font-size: xx-large;">Built for Fairness. Designed for Impact</div>
       </div>
       
@@ -40,7 +40,7 @@
                 <br>
                 <br>
     <!-- copied from  https://getbootstrap.com/docs/4.3/components/forms/  -->
-                <form>
+                <form id="myForm">
                     <div class="form-group">
                       <label for="exampleInputEmail1" class="form1-label">Email address</label>
                       <input type="email" class="form-control form1-input bg-dark text-light" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -51,7 +51,7 @@
                         <label for="exampleInputPassword1" class="form1-label">Password</label>
                         <input type="password" class="form-control bg-dark text-light" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <div class="form-group form-check" class="form1-label">
+                    <div class="form-group form-check">
                         <input type="checkbox" class="form-check-input bg-dark text-light" id="exampleCheck1">
                         <label class="form-check-label form1-label" for="exampleCheck1">Check me out</label>
                     </div>
@@ -69,5 +69,22 @@
             
     </div><!--large container-->
     
+    <script>
+      async function sha256hex(str) {
+        const buf = new TextEncoder().encode(str);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', buf);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray
+          .map(b => b.toString(16).padStart(2, '0'))
+          .join('');
+      }
+
+      document.getElementById('myForm').addEventListener('submit', async function(e) {
+        const pwdField = document.getElementById('exampleInputPassword1');
+        const pwd = pwdField.value;
+        if (!pwd) return; // let form validation handle it
+        pwdField.value = await sha256hex(pwd);
+      });
+    </script>
 </body>
 </html>

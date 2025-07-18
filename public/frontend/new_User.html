@@ -22,31 +22,31 @@
                 <br>
                 <br>
     <!-- altered copied from  https://getbootstrap.com/docs/4.3/components/forms/  -->
-                <form>
+                <form id="myForm">
                     <div class="row">
                         
                         <div class="col-5">
                             <div class="form-group">
                                 <label for="FirstName">First Name </label>
-                                <input type="First" class="form-control" id="exampleInputFirst1" aria-describedby="FirstHelp" placeholder="Enter First Name">
+                                <input type="text" class="form-control" id="exampleInputFirst1" aria-describedby="FirstHelp" placeholder="Enter First Name">
                             </div>
                         </div>
                         <div class="col-2">
                             <div class="form-group">
                                 <label for="MiddleName">M</label>
-                                <input type="MiddleName" class="form-control" id="exampleInputMiddle1" aria-describedby="MiddleHelp" placeholder="Enter Mddle Initial">
+                                <input type="text" class="form-control" id="exampleInputMiddle1" aria-describedby="MiddleHelp" placeholder="Enter Middle Initial">
                             </div>
                         </div>
                         <div class="col-5">
                             <div class="form-group">
                                 <label for="LastName">Last Name</label>
-                                <input type="LastName" class="form-control" id="exampleInputLast1" aria-describedby="LastHelp" placeholder="Enter Last Name">
+                                <input type="text" class="form-control" id="exampleInputLast1" aria-describedby="LastHelp" placeholder="Enter Last Name">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="SchoolID">School ID Number</label>
-                        <input type="SchoolID" class="form-control" id="exampleInputSchoolID1" aria-describedby="SchoolIDHelp" placeholder="Enter School ID number">
+                        <input type="text" class="form-control" id="exampleInputSchoolID1" aria-describedby="SchoolIDHelp" placeholder="Enter School ID number">
                         
                     </div>
                     <br>
@@ -58,11 +58,11 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
-                                        Intro to Programing
+                                        Intro to Programming
                                     </label>
                                 </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
                                     <label class="form-check-label" for="flexCheckChecked">
                                         Computer Systems
                                     </label>
@@ -70,18 +70,17 @@
                         </div>
                         <div class="col-5">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                    <label class="form-check-label" for="flexCheckDefault2">
                                         Software Engineering 1
                                     </label>
                                 </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
-                                    <label class="form-check-label" for="flexCheckChecked">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2">
+                                    <label class="form-check-label" for="flexCheckChecked2">
                                         Software Engineering 2
                                     </label>
                             </div>
-
                         </div>
                     </div>
                     <!--END Alltered from https://getbootstrap.com/docs/5.0/forms/checks-radios/ -->
@@ -114,3 +113,21 @@
     
 </body>
 </html>
+
+<script>
+  async function sha256hex(str) {
+    const buf = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', buf);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    return hashArray
+      .map(b => b.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  document.getElementById('myForm').addEventListener('submit', async function(e) {
+    const pwdField = document.getElementById('exampleInputPassword1');
+    const pwd = pwdField.value;
+    if (!pwd) return; // let form validation handle it
+    pwdField.value = await sha256hex(pwd);
+  });
+</script>
