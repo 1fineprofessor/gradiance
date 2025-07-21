@@ -5,8 +5,11 @@ import lombok.Getter;
 public class QueueNode {
 
     //members
+        @Getter
         private String email;
+        @Getter
         private String course;
+        @Getter
         private String evaluation;
         @Getter
         private long joinTime;
@@ -20,5 +23,7 @@ public class QueueNode {
         this.joinTime = System.currentTimeMillis();
         this.priority = 0;
     }
-
+    public void setPriority(int mod){
+        this.priority += mod;
+    }
 }

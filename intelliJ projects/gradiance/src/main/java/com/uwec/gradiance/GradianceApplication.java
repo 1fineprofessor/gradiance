@@ -1,9 +1,11 @@
 package com.uwec.gradiance;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 public class GradianceApplication {
 	// http://localhost:8085 will let you test when run locally.
 	// when run on the server it is just https://gradiance.org
