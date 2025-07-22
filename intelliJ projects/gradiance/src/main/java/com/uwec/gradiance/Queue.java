@@ -11,7 +11,7 @@ public class Queue {
     @Getter
     private String ID;
     //constructor
-    Queue(){
+     public Queue(){
         this.queueSelf = new LinkedList<QueueNode>();
         this.ID = null; //where are we deriving a queue's ID from?
     }
