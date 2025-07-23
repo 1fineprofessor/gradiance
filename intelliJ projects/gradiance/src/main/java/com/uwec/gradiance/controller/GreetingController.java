@@ -11,7 +11,7 @@ public class GreetingController {
     @GetMapping("/")
     public String greeting(Model model){
         model.addAttribute("message", "hello world!");
-        return "index";
+        return "redirect:/login";
     }
 
 //    @GetMapping("/about")
