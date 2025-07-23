@@ -1,10 +1,11 @@
-package com.uwec.gradiance.model;
+package com.uwec.gradiance.database;
 
+import com.uwec.gradiance.model.RoleEnum;
 import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Users") // Case-sensitive for H2!
-public class AppUser {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
