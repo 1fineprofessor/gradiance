@@ -7,6 +7,16 @@ import jakarta.persistence.*;
 @Table(name = "Users") // Case-sensitive for H2!
 public class Users {
 
+    public Users() {
+        // Default constructor for JPA
+    }
+
+    public Users(String email, String finalHash) {
+        this.email = email;
+        this.password = finalHash;
+        
+    }
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")

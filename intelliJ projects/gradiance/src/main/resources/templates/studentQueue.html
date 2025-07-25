@@ -112,7 +112,7 @@
                             <div class="modal fade" id="queueModal" tabindex="-1" aria-labelledby="queueModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
-                                        <form action="/submit" method="POST">
+                                        <form th:action="@{/join}" method="post">
                                             <div class="modal-header">
                                                 <h1 class="modal-title fs-5 text-center w-100" id="queueModalLabel">Enter Queue Info</h1>
                                             </div>
@@ -122,12 +122,12 @@
                                                     <div class="card p-2 flex-shrink-0 h-15">
                                                         <label for="nameInput" class="form-label mb-0">Full Name</label>
                                                         <div class="d-flex justify-content-center">
-                                                            <input type="text" class="form-control mx-2" id="nameInput" placeholder="Please Enter First and Last Name">
+                                                            <input type="text" class="form-control mx-2" id="nameInput" name="name" placeholder="Please Enter First and Last Name">
                                                         </div>
                                                     </div>
                                                     <div class="card p-2 flex-shrink-0 h-40 d-flex flex-column">
                                                         <label for="classDropdown" class="form-label">Enter Class(es)</label>
-                                                        <select id="classDropdown">
+                                                       <select id="classDropdown" name="studentClass">
                                                             <option value="Class1">Class1</option>
                                                             <option value="Class2">Class2</option>
                                                         </select>
@@ -138,7 +138,7 @@
                                                     </div>
                                                     <div class="card p-2 flex-shrink-0 h-40 d-flex flex-column">
                                                         <label for="competencyDropdown" class="form-label">Enter Competency</label>
-                                                        <select id="competencyDropdown">
+                                                        <select id="competencyDropdown" name="competency">
                                                             <option value="Competency1">Competency1</option>
                                                             <option value="Competency2">Competency2</option>
                                                         </select>
@@ -150,7 +150,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-dark">Join</button>
+                                                <button type="submit" class="btn btn-dark">Join</button>
                                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </form>
@@ -220,7 +220,18 @@
         competencyList.appendChild(li);
     }
 </script>
-
+<script>
+    setInterval(() => {
+        fetch('/studentQueue/check-active', { credentials: 'include' })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.active) {
+                    window.location.href = '/studentinterview';
+                }
+            })
+            .catch(err => console.error('check-active failed', err));
+    }, 3000);
+</script>
 
 </body>
 </html>
