@@ -99,7 +99,7 @@
 
 <script>
     setInterval(() => {
-        fetch('/studentinterview/question', { credentials: 'include' })
+        fetch('/studentInterview/question', { credentials: 'include' })
             .then(resp => resp.json())
             .then(data => {
                 if (data.questionText) {

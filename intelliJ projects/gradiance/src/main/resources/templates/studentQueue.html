@@ -226,7 +226,7 @@
             .then(resp => resp.json())
             .then(data => {
                 if (data.active) {
-                    window.location.href = '/studentinterview';
+                    window.location.href = '/studentInterview';
                 }
             })
             .catch(err => console.error('check-active failed', err));
