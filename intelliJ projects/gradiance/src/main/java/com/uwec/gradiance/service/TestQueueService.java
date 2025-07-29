@@ -3,7 +3,7 @@ package com.uwec.gradiance.service;
 import com.uwec.gradiance.model.TestQueue;
 import com.uwec.gradiance.model.TestQueueNode;
 import org.springframework.stereotype.Service;
-
+import jakarta.annotation.PostConstruct;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,6 +12,11 @@ public class TestQueueService {
     private final TestQueue queue = new TestQueue();
     private final Map<String, TestQueueNode> activeStudents = new ConcurrentHashMap<>();
     private final Map<String, String> questionAssignments = new ConcurrentHashMap<>();
+
+    @PostConstruct
+    public void init() {
+        clearAll();
+    }
 
     public List<TestQueueNode> getAllStudents() {
         return queue.getAllStudents();
@@ -40,6 +45,17 @@ public class TestQueueService {
             questionAssignments.put(student.getEmail(), questionText);
             student.setQuestionText(questionText);
         }
+    }
+
+    public void clearAll() {
+        queue.clear();
+        activeStudents.clear();
+        questionAssignments.clear();
+    }
+
+    public void clearForUser(String email) {
+        activeStudents.entrySet().removeIf(e -> e.getValue().getEmail().equalsIgnoreCase(email));
+        questionAssignments.remove(email);
     }
 
     public String getAssignedQuestion(String email) {

@@ -1,6 +1,7 @@
 package com.uwec.gradiance.config;
 
 import com.uwec.gradiance.service.GeneralDaoUserDetailsService;
+import com.uwec.gradiance.config.QueueLogoutSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -17,11 +18,14 @@ public class SecurityConfig {
 
     private final GeneralDaoUserDetailsService userDetailsService;
     private final RoleBasedSuccessHandler successHandler;
+    private final QueueLogoutSuccessHandler logoutSuccessHandler;
 
     public SecurityConfig(GeneralDaoUserDetailsService userDetailsService,
-                          RoleBasedSuccessHandler successHandler) {
+                          RoleBasedSuccessHandler successHandler,
+                          QueueLogoutSuccessHandler logoutSuccessHandler) {
         this.userDetailsService = userDetailsService;
         this.successHandler = successHandler;
+        this.logoutSuccessHandler = logoutSuccessHandler;
     }
 
     @Bean
@@ -43,7 +47,7 @@ public class SecurityConfig {
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/login?logout")
+                        .logoutSuccessHandler(logoutSuccessHandler)
                 )
                 .authenticationProvider(authProvider);
         return http.build();

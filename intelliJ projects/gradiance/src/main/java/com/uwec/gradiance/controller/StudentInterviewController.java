@@ -18,19 +18,11 @@ public class StudentInterviewController {
     }
     
 
-     @GetMapping("/studentInterview")
-    public String home(Model model, Authentication auth){
-        String questionText = queueService.getAssignedQuestion(auth.getName());
-        model.addAttribute("questionText", questionText);
-        return "studentInterview";
-    }
-
-    @GetMapping("/studentInterview/question")
-    @ResponseBody
-    public Map<String, Object> getQuestion(Authentication auth) {
-        String questionText = queueService.getAssignedQuestion(auth.getName());
-        Map<String, Object> resp = new HashMap<>();
-        resp.put("questionText", questionText);
-        return resp;
+    @GetMapping("/studentinterview")
+    public String showInterview(Model model, Authentication auth) {
+        String email = auth.getName();
+        String q = queueService.getAssignedQuestion(email);
+        model.addAttribute("questionText", q != null ? q : "Waiting for instructor…");
+        return "studentinterview";
     }
 }

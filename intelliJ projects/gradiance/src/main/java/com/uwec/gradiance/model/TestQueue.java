@@ -46,5 +46,10 @@ public class TestQueue {
     public LinkedList<TestQueueNode> getAllStudents() {
         return new LinkedList<>(queueSelf); // return a copy to protect internal state
     }
+    
+    // Remove all students and reset queue
+    public void clear() {
+        queueSelf.clear();
+    }
 }
 

@@ -107,6 +107,7 @@
 
 <!--            TESTING NEW USER SUBMIT-->
             <form th:action="@{/register}" th:object="${registrationRequest}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
                 <div>
                     <label>Student ID:</label>
                     <input type="text" th:field="*{studentId}" />

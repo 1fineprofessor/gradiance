@@ -41,6 +41,7 @@
             <br>
             <!-- copied from  https://getbootstrap.com/docs/4.3/components/forms/  -->
             <form th:action="@{/login}" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="form1-label">Email</label>
