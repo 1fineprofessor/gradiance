@@ -80,7 +80,7 @@
 
                             <div class="question-display-container d-flex bg-dark">
                                 <div class="card m-1 flex-grow-1 d-flex justify-content-center align-items-center">
-                                    <p class="text-center mb-0">This is where the actual question will go</p>
+                                    <p id="questionText" class="text-center mb-0" th:text="${questionText}">Question text</p>
                                 </div>
                                 <div class="card m-1 flex-grow-1">
                                     <img src="#" alt="where image would be shown">
@@ -97,6 +97,20 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+    setInterval(() => {
+        fetch('/studentinterview/question', { credentials: 'include' })
+            .then(resp => resp.json())
+            .then(data => {
+                if (data.questionText) {
+                    document.getElementById('questionText').textContent = data.questionText;
+                }
+            })
+            .catch(err => console.error('question fetch failed', err));
+    }, 3000);
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
