@@ -80,7 +80,7 @@
 
                             <div class="question-display-container d-flex bg-dark">
                                 <div class="card m-1 flex-grow-1 d-flex justify-content-center align-items-center">
-                                    <p id="questionText" class="text-center mb-0" th:text="${questionText}">Question text</p>
+                                    <ul id="questionList" class="mb-0" style="list-style-type: none; padding-left: 0;"></ul>
                                 </div>
                                 <div class="card m-1 flex-grow-1">
                                     <img src="#" alt="where image would be shown">
@@ -95,19 +95,17 @@
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-    setInterval(() => {
-        fetch('/studentinterview/question', { credentials: 'include' })
-            .then(resp => resp.json())
-            .then(data => {
-                if (data.questionText) {
-                    document.getElementById('questionText').textContent = data.questionText;
-                }
-            })
-            .catch(err => console.error('question fetch failed', err));
-    }, 3000);
+    const list = document.getElementById('questionList');
+    const source = new EventSource('/api/active-question/stream');
+    source.addEventListener('questionUpdated', (event) => {
+        list.innerHTML = '';
+        if (event.data) {
+            const li = document.createElement('li');
+            li.textContent = event.data;
+            list.appendChild(li);
+        }
+    });
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>

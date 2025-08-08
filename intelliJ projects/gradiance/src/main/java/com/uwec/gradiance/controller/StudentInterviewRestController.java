@@ -5,6 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -16,8 +17,8 @@ public class StudentInterviewRestController {
     }
 
     @GetMapping("/studentinterview/question")
-    public Map<String, String> pollQuestion(Authentication auth) {
-        String q = queueService.getAssignedQuestion(auth.getName());
-        return Map.of("questionText", q == null ? "" : q);
+    public Map<String, List<String>> pollQuestion(Authentication auth) {
+        var qList = queueService.getAssignedQuestions(auth.getName());
+        return Map.of("questionTexts", qList);
     }
 }

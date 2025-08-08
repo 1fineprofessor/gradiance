@@ -1,72 +1,43 @@
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Simple Instructor Page</title>
+    <title>Instructor | Gradience</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
     <link rel="stylesheet" th:href="@{/styles/simple-style.css}">
-    <link rel="stylesheet" href="/styles/simple-style.css">
 
+    <!-- Icons (optional) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"/>
-
 </head>
 <body>
 <header>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
         <a class="navbar-brand" href="#">Gradience</a>
-        <button class="navbar-toggler"type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
             <!-- Left items on navbar -->
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a id="queue-toggle" class="nav-link">
-                        Toggle Queue
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a id="studentInfo-toggle" class="nav-link">
-                        Toggle Student Info
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Database</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="#" aria-current="page">Home</a></li>
+                <li class="nav-item"><a id="queue-toggle" class="nav-link" role="button">Toggle Queue</a></li>
+                <li class="nav-item"><a id="studentInfo-toggle" class="nav-link" role="button">Toggle Student Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Database</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
             </ul>
-            <!-- Right items on navbar -->
-            <ul class="navbar-nav ms-auto">
-                <!-- settings dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="settingsDropdown"role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-label="Settings">
-                        <i class="bi bi-gear-fill"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="settingsDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile</a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
+            <!-- Right items (keep empty; no navbar popout on purpose) -->
+            <ul class="navbar-nav ms-auto"></ul>
         </div>
     </nav>
 </header>
+
 <!-- Main Container -->
 <div class="d-flex main-container">
 
@@ -75,24 +46,21 @@
         <div class="card flex-fill">
             <div class="card-body">
                 <div class="queue-container d-flex flex-column">
-                    <!--   Queue List    -->
+                    <!-- Queue List -->
                     <div class="card mb-2 flex-grow-1 h-75" id="queueList">
                         <div class="col p-2 overflow-auto h-100">
                             <ul class="list-group">
                                 <div th:each="student : ${students}">
                                     <li class="list-group-item">
                                         <div class="d-flex flex-column flex-md-row gap-3">
-
                                             <div class="flex-fill">
                                                 <strong>Name:</strong>
                                                 <span th:text="${student.name}">Student Name</span>
                                             </div>
-
                                             <div class="flex-fill">
                                                 <strong>Class:</strong>
                                                 <span th:text="${student.studentClass}">Class</span>
                                             </div>
-
                                             <div class="flex-fill">
                                                 <strong>Competencies:</strong>
                                                 <span th:text="${student.competency}">Competency</span>
@@ -102,12 +70,10 @@
                                 </div>
                             </ul>
                         </div>
-
-
                     </div>
+
                     <div class="card flex-grow-1 h-25" id="queueOptions">
                         <div class="d-flex flex-column h-100 p-3 gap-2 overflow-auto">
-
                             <!-- First Row -->
                             <form action="/instructor/call-next" method="post" class="mb-2">
                                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
@@ -120,16 +86,15 @@
                                 <button class="btn btn-dark flex-fill">Button 6</button>
                             </div>
                         </div>
-
                     </div>
-                </div>
+                </div> <!-- /.queue-container -->
             </div>
         </div>
     </div>
 
     <!-- Right Panel -->
     <div class="col d-flex flex-column p-3 right-cards">
-        <!-- Student info/ Previously Asked Questions-->
+        <!-- Student info / Previously Asked Questions -->
         <div class="card mb-2 flex-grow-1 h-40" id="studentInfoPanel">
             <ul class="nav nav-tabs bg-dark rounded-top" id="topPanelTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -158,11 +123,11 @@
                     </div>
                 </div>
             </div>
-
         </div>
+
         <!-- Question Area -->
         <div class="card flex-grow-1 h-60">
-            <div class="question-container d-flex flex-grow-1" >
+            <div class="question-container d-flex flex-grow-1">
                 <!-- question List -->
                 <div class="col-4 p-2 h-100">
                     <div class="question-list-container d-flex flex-column">
@@ -172,6 +137,7 @@
                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#questionModal">
                                     <i class="bi bi-search"></i>
                                 </button>
+
                                 <!--  Question Modal -->
                                 <div class="modal fade" id="questionModal" tabindex="-1" aria-labelledby="questionModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
@@ -227,11 +193,12 @@
                                                             </ul>
                                                         </div>
                                                     </div>
+
                                                     <!-- Modal Question-Info area -->
                                                     <div class="card flex-grow-1 d-flex flex-row m-2 mt-0 h-80">
                                                         <div class="card flex-grow-1 m-2 w-75 overflow-auto border-0">
                                                             <ul class="list-group" th:if="${questions != null}">
-                                                                <li class="list-group-item" th:each="question : ${questions}" th:text="${question.questionText}">
+                                                                <li class="list-group-item" th:each="question : ${questions}" th:text="${question}">
                                                                     Question Text
                                                                 </li>
                                                             </ul>
@@ -245,39 +212,44 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </div> <!-- /.question-modal-container -->
                                             </div>
                                             <div class="modal-footer">
-                                                <button id="askButton" type="button" class="btn btn-dark">Ask</button>
                                                 <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Close</button>
                                                 <button type="button" class="btn btn-dark">Save changes</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
+                                </div><!-- /.modal -->
                             </div>
                         </div>
+
                         <div class="card flex-grow-1 overflow-auto h-75 border-0">
                             <ul id="questionList" class="list-group" th:if="${questions != null}">
-                                <li class="list-group-item" th:each="question : ${questions}"
-                                    th:text="${question.questionText}"
-                                    th:data-question-id="${question.id}"
-                                    th:data-question-text="${question.questionText}">
-                                    Question Text
+                                <li class="list-group-item d-flex justify-content-between align-items-center"
+                                    th:each="question, iter : ${questions}"
+                                    th:data-question-id="${iter.index}">
+                                    <span th:text="${question}">Question Text</span>
+                                    <button class="btn btn-primary btn-sm ask-btn"
+                                            th:data-question-id="${iter.index}">
+                                        Ask
+                                    </button>
                                 </li>
                             </ul>
                         </div>
-                    </div>
+                    </div> <!-- /.question-list-container -->
                 </div>
 
+                <!-- Question area & controls -->
                 <div class="col-8 p-2">
                     <div class="question-area-container d-flex flex-column">
-                        <!-- Question Info-->
+                        <!-- Question Info -->
                         <div class="card mb-2 flex-grow-1 h-60">
                             <ul class="nav nav-tabs bg-dark rounded-top border-bottom-0" role="tablist">
                                 <li class="nav-item" role="tab">
-                                    <span class="nav-link disabled text-white">Question ID: 1674950</span>
+                                    <span class="nav-link disabled text-white">
+                                      Question ID: <span id="currentQuestionLabel">None</span>
+                                    </span>
                                 </li>
                                 <li class="nav-item" role="tab">
                                     <span class="nav-link disabled text-white">Category: Linked List</span>
@@ -296,16 +268,20 @@
                                         <img src="#" alt="where image would be shown">
                                     </div>
                                 </div>
-                                <div class="d-flex flex-column m-1 w-25 h-90">␊
-                                    <button id="startButton" class=" btn btn-success flex-fill m-2">Start</button>
-                                    <button class=" btn btn-danger flex-fill m-2">End</button>␊
+                                <div class="d-flex flex-column m-1 w-25 h-90">
+                                    <button id="startButton" class="btn btn-success flex-fill m-2">Start</button>
+                                    <button id="endButton" class="btn btn-danger flex-fill m-2" disabled>End</button>
+                                    <button id="popoutButton" class="btn btn-outline-primary flex-fill m-2">
+                                        Interview Popout
+                                    </button>
+                                    <!-- Visible instructor timer -->
+                                    <div id="questionTimerDisplay" class="bg-dark text-white px-2 py-1 rounded text-end small">0:00</div>
                                 </div>
                             </div>
-
                         </div>
-                        <!-- FollowUp/ Additional Comments -->
+
+                        <!-- FollowUp / Additional Comments -->
                         <div class="card flex-grow-1 h-40">
-                            <!-- Tabs -->
                             <ul class="nav nav-tabs bg-dark rounded-top" id="bottomPanelTab" role="tablist">
                                 <li class="nav-item" role="presentation">
                                     <button class="btn btn-dark rounded-0 rounded-top active" id="followUp-tab"
@@ -322,7 +298,6 @@
                                     </button>
                                 </li>
                             </ul>
-                            <!-- Content -->
                             <div class="card-body">
                                 <div class="tab-content" id="bottomPanelTabContent">
                                     <div class="tab-pane fade show active" id="followUp" role="tabpanel" aria-labelledby="followUp-tab">
@@ -334,69 +309,25 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <!-- /.question-area-container -->
                 </div>
-            </div>
+            </div> <!-- /.question-container -->
         </div>
     </div>
 </div>
 
-<form id="askQuestionForm" action="/instructor/assign-question" method="post">
-    <input type="hidden"
-           th:name="${_csrf.parameterName}"
-           th:value="${_csrf.token}" />
+<!-- Student pop-out modal kept (optional) -->
+
+<!-- Hidden form purely to expose CSRF to JS -->
+<form id="askQuestionForm" action="/instructor/assign-question" method="post" class="d-none">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
     <input type="hidden" name="questionText" id="askQuestionInput" />
 </form>
 
-<script>
-  // toggle left panels
-  const queueToggle       = document.getElementById('queue-toggle');
-  const leftPanel         = document.getElementById('leftPanel');
-  const studentInfoToggle = document.getElementById('studentInfo-toggle');
-  const studentInfoPanel  = document.getElementById('studentInfoPanel');
-
-  queueToggle.addEventListener('click', () => {
-    leftPanel.classList.toggle('d-none');
-  });
-  studentInfoToggle.addEventListener('click', () => {
-    studentInfoPanel.classList.toggle('d-none');
-  });
-
-  // always send the same hard‐coded question
-  document.getElementById('askButton')
-    .addEventListener('click', () => {
-      const hardCodedQuestion = 'What is the difference between a linked list and an array?';
-      document.getElementById('askQuestionInput').value = hardCodedQuestion;
-      document.getElementById('askQuestionForm').submit();
-    });
-</script>
-
-<!-- Bootstrap bundle -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 
-
-<script>
-  let selectedText = null;
-  document
-    .getElementById('questionList')
-    .addEventListener('click', e => {
-      const li = e.target.closest('li[data-question-id]');
-      if (!li) return;
-      selectedText = li.getAttribute('data-question-text');
-    });
-
-  document.getElementById('askButton')
-    .addEventListener('click', () => {
-      if (!selectedText) {
-        return alert('Please pick a question first');
-      }
-      document.getElementById('askQuestionInput').value = selectedText;
-      document.getElementById('askQuestionForm').submit();
-    });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-
-
+<!-- Timers + UI glue -->
+<script defer th:src="@{/js/timers.js}"></script>
 </body>
 </html>

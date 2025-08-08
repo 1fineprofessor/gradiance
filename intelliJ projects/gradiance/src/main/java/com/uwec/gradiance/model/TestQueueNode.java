@@ -4,13 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+
+import java.util.ArrayList;
+import java.util.List;
+
 @AllArgsConstructor
 @Getter
 @Setter
 public class TestQueueNode {
     private String email;
     private String name; // or any other fields you want
-    private String questionText;
+    private List<String> questionTexts = new ArrayList<>();
     private String studentClass;
     private String competency;
 
@@ -28,7 +32,7 @@ public class TestQueueNode {
         this.competency = competency;
     }
 
-    public void setQuestionId(String questionText) {
-        this.questionText = questionText;
+    public void addQuestion(String questionText) {
+        this.questionTexts.add(questionText);
     }
 }

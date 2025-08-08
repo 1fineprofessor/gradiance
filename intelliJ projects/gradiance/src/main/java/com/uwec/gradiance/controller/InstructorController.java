@@ -19,6 +19,7 @@ public class InstructorController {
     @GetMapping("/instructor")
     public String home(Model model){
         model.addAttribute("students", queueService.getAllStudents());
+        model.addAttribute("questions", queueService.getAllQuestions());
         return "instructor";
     }
 

@@ -32,9 +32,10 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http,
                                            DaoAuthenticationProvider authProvider) throws Exception {
         http
-//                .csrf().disable()  // disable for demo; remove if you add CSRF tokens
+                //.csrf(csrf -> csrf.disable())
+                
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/styles/**", "/register", "/login").permitAll()
+                        .requestMatchers("/", "/styles/**", "/register", "/login").permitAll()
                         .requestMatchers("/instructor").hasRole("INSTRUCTOR")
                         .requestMatchers("/studentQueue").authenticated()
                         .anyRequest().authenticated()

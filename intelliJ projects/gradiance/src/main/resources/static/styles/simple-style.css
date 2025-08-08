@@ -89,6 +89,11 @@ body, html {
 .flex-1-1-0{
     flex: 1 1 0;
 }
+#questionTimerDisplay {
+    color: white;  /* Makes seconds visible against bg-dark */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
 
 
 @media (max-width: 991.98px) {
